@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI HR Recruitment Assistant</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="logo">AI</div>
+
+            <div>
+                <h2>RecruitAI</h2>
+                <p>HR Recruitment Assistant</p>
+            </div>
+        </div>
+
+        <nav>
+            <a href="#dashboard" class="active">
+                🏠 Dashboard
+            </a>
+
+            <a href="#screening">
+                📄 Resume Screening
+            </a>
+
+            <a href="#matching">
+                🔄 Candidate Matching
+            </a>
+
+            <a href="#interview">
+                ✨ Interview Questions
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="online">
+                <span></span> AI Engine Online
+            </div>
+
+            <p>
+                IBM Project Prototype<br>
+                Recruitment Intelligence
+            </p>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <!-- HEADER -->
+        <header class="header" id="dashboard">
+
+            <div>
+                <label>SMART RECRUITMENT</label>
+
+                <h1>AI HR Recruitment Assistant</h1>
+
+                <p>
+                    Screen resumes, match candidates with job descriptions
+                    and generate interview questions.
+                </p>
+            </div>
+
+            <button class="profile">
+                HR Manager ▼
+            </button>
+
+        </header>
+
+
+        <!-- STAT CARDS -->
+        <section class="stats">
+
+            <div class="stat-card">
+                <div class="stat-icon blue">CV</div>
+
+                <div>
+                    <small>Resumes Screened</small>
+                    <h2>128</h2>
+                    <span>+18 this week</span>
+                </div>
+            </div>
+
+
+            <div class="stat-card">
+                <div class="stat-icon purple">AI</div>
+
+                <div>
+                    <small>Average Match Score</small>
+                    <h2>82%</h2>
+                    <span>AI Confidence</span>
+                </div>
+            </div>
+
+
+            <div class="stat-card">
+                <div class="stat-icon green">✓</div>
+
+                <div>
+                    <small>Shortlisted</small>
+                    <h2 id="shortlisted">34</h2>
+                    <span>26.5% Candidates</span>
+                </div>
+            </div>
+
+
+            <div class="stat-card">
+                <div class="stat-icon orange">?</div>
+
+                <div>
+                    <small>Interviews Ready</small>
+                    <h2>19</h2>
+                    <span>Question Sets</span>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- WORKSPACE -->
+        <section class="workspace">
+
+
+            <!-- RESUME SCREENING -->
+            <div class="card" id="screening">
+
+                <div class="card-header">
+
+                    <div>
+                        <label>01 • RESUME SCREENING</label>
+                        <h2>Upload Candidate Resume</h2>
+                    </div>
+
+                    <span class="badge">AI Powered</span>
+
+                </div>
+
+
+                <label class="upload" for="resume">
+
+                    <div class="upload-icon">↑</div>
+
+                    <h3>Drop resume here or browse</h3>
+
+                    <p>
+                        PDF, DOC or DOCX • Maximum 10 MB
+                    </p>
+
+                    <span class="choose">
+                        Choose Resume
+                    </span>
+
+                    <input
+                        type="file"
+                        id="resume"
+                        accept=".pdf,.doc,.docx"
+                    >
+
+                </label>
+
+                <p id="fileName" class="filename">
+                    No resume selected
+                </p>
+
+
+                <div class="form">
+
+                    <label>Candidate Name</label>
+
+                    <input
+                        type="text"
+                        id="candidate"
+                        placeholder="e.g. Priya Kumar"
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- JOB MATCHING -->
+            <div class="card" id="matching">
+
+                <div class="card-header">
+
+                    <div>
+                        <label>02 • JOB MATCHING</label>
+                        <h2>Job Description</h2>
+                    </div>
+
+                    <span class="badge">
+                        RAG + Tools
+                    </span>
+
+                </div>
+
+
+                <div class="form">
+
+                    <label>Target Position</label>
+
+                    <input
+                        type="text"
+                        id="job"
+                        value="Software Developer"
+                    >
+
+                </div>
+
+
+                <div class="form">
+
+                    <label>Job Description</label>
+
+                    <textarea id="description" rows="7">
+We are looking for a Software Developer with strong skills in JavaScript, HTML, CSS, SQL and problem solving. Experience with APIs, Git and cloud platforms is preferred.
+                    </textarea>
+
+                </div>
+
+
+                <button
+                    class="primary"
+                    id="analyze"
+                >
+                    ✨ Analyze Candidate with AI
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- AI ANALYSIS -->
+        <section class="results">
+
+            <div class="results-header">
+
+                <div>
+                    <label>AI ANALYSIS</label>
+                    <h2>Candidate Evaluation</h2>
+                </div>
+
+                <span id="status">
+                    Ready for analysis
+                </span>
+
+            </div>
+
+
+            <div class="result-grid">
+
+
+                <!-- SCORE -->
+                <div class="result-card score">
+
+                    <div class="circle">
+                        <strong id="score">82</strong>
+                        <small>%</small>
+                    </div>
+
+                    <h3>Overall Match</h3>
+
+                    <p id="scoreText">
+                        Strong alignment with the selected role.
+                    </p>
+
+                </div>
+
+
+                <!-- SKILLS -->
+                <div class="result-card">
+
+                    <h3>Matched Skills</h3>
+
+                    <div class="skills">
+
+                        <span>JavaScript</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>SQL</span>
+                        <span>Git</span>
+                        <span>Problem Solving</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RECOMMENDATION -->
+                <div class="result-card">
+
+                    <h3>AI Recommendation</h3>
+
+                    <div class="recommendation">
+
+                        <div class="check">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <strong id="recommendation">
+                                Shortlist Candidate
+                            </strong>
+
+                            <p id="recommendationText">
+                                Profile meets most of the role requirements.
+                                Proceed to interview screening.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- INTERVIEW QUESTIONS -->
+        <section class="interview" id="interview">
+
+            <div class="interview-header">
+
+                <div>
+
+                    <label>
+                        03 • INTERVIEW ASSISTANT
+                    </label>
+
+                    <h2>
+                        AI-Generated Interview Questions
+                    </h2>
+
+                    <p>
+                        Questions are generated from the job role
+                        and candidate match.
+                    </p>
+
+                </div>
+
+                <button
+                    class="secondary"
+                    id="generate"
+                >
+                    Generate Questions ✨
+                </button>
+
+            </div>
+
+
+            <div id="questions" class="questions">
+
+                <div class="question">
+                    <span>01</span>
+
+                    <p>
+                        Explain a challenging JavaScript project
+                        you have worked on and how you solved
+                        a technical problem.
+                    </p>
+                </div>
+
+
+                <div class="question">
+                    <span>02</span>
+
+                    <p>
+                        How would you design a responsive web page
+                        using HTML and CSS?
+                    </p>
+                </div>
+
+
+                <div class="question">
+                    <span>03</span>
+
+                    <p>
+                        Describe a situation where you used SQL
+                        to solve a data-related issue.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+            © 2026 RecruitAI • IBM Project Prototype
+        </footer>
+
+    </main>
+
+</div>
+
+
+<div id="toast" class="toast">
+    Analysis completed successfully
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
